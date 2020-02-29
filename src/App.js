@@ -121,6 +121,13 @@ class App extends React.Component {
                           </div>
                       </div>
                     </div>
+                    <div class="field is-grouped is-grouped-right">
+                      <p class="control">
+                        <a class="button is-primary">
+                          Search
+                        </a>
+                      </p>
+                    </div>
 
 
                     </form> 
