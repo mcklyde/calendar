@@ -1,0 +1,28 @@
+.calendar {
+    position: absolute;
+    z-index: 100;
+    top: 105%;
+
+}
+
+.selected {
+    background-color: #00a699;
+}
+
+.middle {
+    background-color: #66e2da;
+}
+
+.invalid {
+    border-color: #e4e7e7;
+    color: #e4e7e7;
+}
+
+th {
+    border: 0px;
+}
+
+#calendarNav {
+    padding-top: .5em;
+}
+  
