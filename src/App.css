@@ -1,14 +1,3 @@
-svg {
-  height:2em;
-  width:2em;
-  display:block;
-  fill:currentColor;
-}
-.hero {
-  background-image: url('https://a0.muscache.com/4ea/air/r:w3100-h2074-sfit,e:fjpg-c80/pictures/0ffd8594-f123-43f0-85bb-7ef88c6f0624.jpg');
-  background-size: cover;
-}
-
 .hero-body {
   align-items: start !important;
 }
@@ -18,4 +7,5 @@ svg {
   padding: 2rem;
   margin-left: 10em;
   border-radius: 10px;
+  height: 500px;
 }
