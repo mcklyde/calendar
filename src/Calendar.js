@@ -86,7 +86,7 @@ class Calendar extends React.Component {
     const selectedDay = this.state.daysInMonth[week][day];
     const stateToChange = {};
 
-    if (position === "0%") {
+    if (position === "left") {
       if (
         this.state.checkOutDate == null ||
         selectedDay > this.state.checkOutDate
@@ -94,7 +94,7 @@ class Calendar extends React.Component {
         stateToChange.checkOutDate = null;
       }
       stateToChange.checkInDate = selectedDay;
-    } else if (position === "50%") {
+    } else if (position === "right") {
       if (
         this.state.checkInDate == null ||
         selectedDay.valueOf() < this.state.checkInDate.valueOf()
@@ -108,7 +108,6 @@ class Calendar extends React.Component {
 
     this.setState(stateToChange, this.dateSelected);
   }
-
 
   render() {
     let tableDays = this.state.daysInMonth.map((week, i) => {
@@ -141,7 +140,7 @@ class Calendar extends React.Component {
         const dateType = verifyDate(day);
         return (
           <td
-            class={dateType}
+            class={`${dateType} has-text-centered`}
             onClick={
               dateType !== "invalid" ? this.selectDate.bind(this, i, j) : ""
             }
@@ -156,51 +155,53 @@ class Calendar extends React.Component {
       return <tr key={i}> {currentWeek} </tr>;
     });
 
+    let calendarPos = {
+
+    }
+
+    calendarPos[this.props.position] = "0%";
     return (
       <div
         class={`calendar ${this.props.hidden ? "is-hidden" : "not-hidden"}`}
-        style={{ left: this.props.position }}
+        style={ calendarPos }
       >
         <div class="card">
-          <div class="field has-addons has-addons-centered" id="calendarNav">
-            <p class="control">
-              <span class="icon is-large">
-                {" "}
-                <FontAwesomeIcon
-                  onClick={this.dateClick.bind(this, -1)}
-                  icon={faArrowLeft}
-                />{" "}
-              </span>
-            </p>
-            <p class="control is-expanded">
-              <h1 class="is-size-4 has-text-centered">
-                {" "}
-                {`${
-                  this.state.currentMonth
-                } ${this.state.currentDate.getFullYear()}`}{" "}
-              </h1>
-            </p>
-            <p class="control has-text-right">
-              <span class="icon is-large">
-                {" "}
-                <FontAwesomeIcon
-                  onClick={this.dateClick.bind(this, 1)}
-                  icon={faArrowRight}
-                />{" "}
-              </span>
-            </p>
-          </div>
           <div class="card-content">
+            <div class="field has-addons has-addons-centered" id="calendarNav">
+              <p class="control">
+                <span class="icon is-small">
+                  <FontAwesomeIcon
+                    onClick={this.dateClick.bind(this, -1)}
+                    icon={faArrowLeft}
+                  />
+                </span>
+              </p>
+              <p class="control is-expanded">
+                <h1 class="is-size-6 has-text-centered">
+                  {`${
+                    this.state.currentMonth
+                  } ${this.state.currentDate.getFullYear()}`}
+                </h1>
+              </p>
+              <p class="control has-text-right">
+                <span class="icon is-small">
+                  <FontAwesomeIcon
+                    onClick={this.dateClick.bind(this, 1)}
+                    icon={faArrowRight}
+                  />
+                </span>
+              </p>
+            </div>
             <div class="table-container">
-              <table class="table is-bordered">
+              <table class="table is-bordered is-narrow">
                 <thead>
-                  <th> Su </th>
-                  <th> M </th>
-                  <th> Tu </th>
-                  <th> We </th>
-                  <th> Th </th>
-                  <th> Fr </th>
-                  <th> Sa </th>
+                  <th class="has-text-centered"> Su </th>
+                  <th class="has-text-centered"> M </th>
+                  <th class="has-text-centered"> Tu </th>
+                  <th class="has-text-centered"> We </th>
+                  <th class="has-text-centered"> Th </th>
+                  <th class="has-text-centered"> Fr </th>
+                  <th class="has-text-centered"> Sa </th>
                 </thead>
                 <tbody>{tableDays}</tbody>
               </table>

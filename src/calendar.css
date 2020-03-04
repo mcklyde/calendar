@@ -26,3 +26,11 @@ th {
     padding-top: .5em;
 }
   
+.table {
+    font-size: 14px;
+}
+
+.table td, .table th {
+    padding: 0px !important;
+
+}
