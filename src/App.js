@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      position: "50%",
+      position: "left",
       checkIn: null,
       checkOut: null,
       hidden: true
@@ -21,7 +21,7 @@ class App extends React.Component {
 
   calendarClick(pos) {
     this.setState({
-      position: `${pos}%`,
+      position: pos,
       hidden: false
     });
   }
@@ -48,9 +48,9 @@ class App extends React.Component {
       checkOut: checkOutDate
     });
 
-    if (this.state.position === "0%") {
+    if (this.state.position === "left") {
       this.setState({
-        position: "50%"
+        position: "right"
       });
     }
   }
@@ -75,8 +75,8 @@ class App extends React.Component {
       <div className="App">
         <section class="hero is-success is-fullheight">
           <div class="hero-body">
-            <div class="container is-fluid">
-              <div class="card" id="searchCard">
+            <div class="columns">
+              <div class="column is-two-thirds card" id="searchCard">
                 <div class="card-content">
                   <p class="is-size-4 has-text-weight-bold">
                     {" "}
@@ -90,7 +90,7 @@ class App extends React.Component {
                       <div class="control is-expanded">
                         <label class="label">Check in</label>
                         <input
-                          onClick={this.calendarClick.bind(this, 0)}
+                          onClick={this.calendarClick.bind(this, "left")}
                           class="input"
                           type="text"
                           value={this.state.checkIn}
@@ -100,7 +100,7 @@ class App extends React.Component {
                       <div class="control is-expanded">
                         <label class="label">Check out</label>
                         <input
-                          onClick={this.calendarClick.bind(this, 50)}
+                          onClick={this.calendarClick.bind(this, "right")}
                           class="input"
                           type="text"
                           value={this.state.checkOut}

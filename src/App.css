@@ -3,9 +3,14 @@
 }
 
 #searchCard {
-  width: 20vw;
   padding: 2rem;
-  margin-left: 10em;
   border-radius: 10px;
   height: 500px;
+  margin-left: auto;
+}
+
+td {
+  width: 32px;
+  height: 32px;
+  font-size:14px;
 }
